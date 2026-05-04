@@ -29,7 +29,10 @@
   --shadow-lg: 0 16px 48px rgba(0,0,0,0.14);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-sans);
@@ -37,6 +40,7 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -172,6 +176,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .nav__logo-mark {
@@ -192,6 +197,10 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   font-size: 16px;
   color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .nav__links {
@@ -1083,6 +1092,26 @@ img { max-width: 100%; display: block; }
   .nav__burger { display: flex; }
   .mobile-nav { display: flex; }
 
+  .nav {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 48px 20px 64px;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__headline {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+
+  .hero__sub {
+    font-size: 15px;
+  }
+
   .trust-strip__divider { display: none; }
 
   .contact-form__row { grid-template-columns: 1fr; }
@@ -1091,6 +1120,22 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 480px) {
+  .nav {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 40px 16px 56px;
+  }
+
+  .hero__headline {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+
+  .hero__sub {
+    font-size: 14px;
+  }
+
   .hero__actions { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
 }
